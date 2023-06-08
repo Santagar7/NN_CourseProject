@@ -4,10 +4,15 @@
     <title>Search Results</title>
 </head>
 <body>
-    <h1>Search Results</h1>
+    <h1>Search Results:</h1>
     <ul>
         {% for movie in movies %}
-        <li>{{ movie.title }} <a href="/rate/{{ movie.id }}">Rate this movie</a></li>
+            <li>
+                {{ movie.title }}
+                <form action="/rating_form/{{ movie.id }}" method="get">
+                    <button type="submit">Rate this movie</button>
+                </form>
+            </li>
         {% endfor %}
     </ul>
 </body>
