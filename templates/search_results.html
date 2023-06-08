@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <ul>
+        {% for movie in movies %}
+        <li>{{ movie.title }} <a href="/rate/{{ movie.id }}">Rate this movie</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
