@@ -14,7 +14,7 @@ import numpy as np
 
 
 app = create_app()
-model = load_model('C:\\Users\\dobis\\OneDrive\\itrytostudy\\nn\\app\\NN_CourseProject\\src\\model\\ncf_model')
+model = load_model('..\\model\\ncf_model')
 rating_schema = RatingSchema()
 ratings_schema = RatingSchema(many=True)
 
