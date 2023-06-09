@@ -2,18 +2,23 @@
 <html>
 <head>
     <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Search Results:</h1>
-    <ul>
-        {% for movie in movies %}
-            <li>
-                {{ movie.title }}
-                <form action="/rating_form/{{ movie.id }}" method="get">
-                    <button type="submit">Rate this movie</button>
-                </form>
+    <div class="container mt-5">
+        <h1>Search Results:</h1>
+        <ul class="list-unstyled">
+            {% for movie in movies %}
+            <li class="media mb-4 p-3 bg-light rounded">
+                <div class="media-body">
+                    {{ movie.title }}
+                    <form action="/rating_form/{{ movie.id }}" method="get">
+                        <button class="btn btn-primary mt-2" type="submit">Rate this movie</button>
+                    </form>
+                </div>
             </li>
-        {% endfor %}
-    </ul>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
