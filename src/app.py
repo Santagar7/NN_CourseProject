@@ -1,24 +1,31 @@
 from flask import Flask
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_login import LoginManager
-import routes
-import auth
+from models import *
+import os
 
+ma = Marshmallow()
+login_manager = LoginManager()
 
-app = Flask(__name__)
+migrate = Migrate()
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:olena292003@localhost:3306/movierecommender'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+def create_app():
+    # Init app
+    app = Flask(__name__)
+    app.config['SECRET_KEY'] = os.urandom(24)
 
-db = SQLAlchemy(app)
+    # Database
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:olena292003@localhost:3306/movierecommender'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-ma = Marshmallow(app)
+    # Init extensions
+    db.init_app(app)
+    migrate.init_app(app, db)
+    ma.init_app(app)
+    login_manager.init_app(app)
 
-login_manager = LoginManager(app)
+    login_manager.login_view = 'login'
 
-if __name__ == '__main__':
-    with app.app_context():
-        from models import *
-        db.create_all()
-    app.run(debug=True)
+    return app

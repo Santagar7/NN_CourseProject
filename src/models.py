@@ -1,8 +1,9 @@
-from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import UniqueConstraint
 from flask_login import UserMixin
+from flask_sqlalchemy import SQLAlchemy
 
+db = SQLAlchemy()
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -14,6 +15,9 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+    def __init__(self, username):
+        self.username = username
 
 
 class Rating(db.Model):
@@ -56,3 +60,4 @@ class Movie(db.Model):
     thriller = db.Column(db.Boolean, default=False)
     war = db.Column(db.Boolean, default=False)
     western = db.Column(db.Boolean, default=False)
+
