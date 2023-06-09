@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -60,4 +61,3 @@ class Movie(db.Model):
     thriller = db.Column(db.Boolean, default=False)
     war = db.Column(db.Boolean, default=False)
     western = db.Column(db.Boolean, default=False)
-

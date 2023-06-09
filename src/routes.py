@@ -12,7 +12,6 @@ from src.forms import RatingForm
 from keras.models import load_model
 import numpy as np
 
-
 app = create_app()
 model = load_model('..\\model\\ncf_model')
 rating_schema = RatingSchema()
@@ -152,7 +151,6 @@ def recommend():
     num_recommendations = 10
     user_id = current_user.id
     recommended_movies = recommend_movies(user_id, num_recommendations)
-
 
     return render_template('recommendations.html', movies=recommended_movies)
 
