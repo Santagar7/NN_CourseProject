@@ -26,7 +26,7 @@ class Rating(db.Model):
     user_id = db.Column(db.Integer, nullable=False)
     movie_id = db.Column(db.Integer, nullable=False)
     rating = db.Column(db.Float, nullable=False)
-    timestamp = db.Column(db.BigInteger, nullable=False)  # Assuming timestamp is a Unix timestamp
+    timestamp = db.Column(db.BigInteger, nullable=False)
 
     def __init__(self, user_id, movie_id, rating, timestamp):
         self.user_id = user_id

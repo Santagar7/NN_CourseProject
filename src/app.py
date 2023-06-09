@@ -12,15 +12,12 @@ login_manager = LoginManager()
 migrate = Migrate()
 
 def create_app():
-    # Init app
     app = Flask(__name__)
     app.config['SECRET_KEY'] = os.urandom(24)
 
-    # Database
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:olena292003@localhost:3306/movierecommender'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    # Init extensions
     db.init_app(app)
     migrate.init_app(app, db)
     ma.init_app(app)

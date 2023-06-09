@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Ratings</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Your Movie Ratings</h1>
+        <div class="row">
+            {% for rating in ratings %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ rating.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Genres: {{ rating.genres }}</h6>
+                        <p class="card-text">Your Rating: {{ rating.user_rating }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

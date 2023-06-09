@@ -5,19 +5,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Recommended Movies</h1>
-        <ul class="list-unstyled">
-            {% for movie in movies %}
+<div class="container mt-5">
+    <h1>Recommended Movies</h1>
+    <ul class="list-unstyled">
+        {% for movie in movies %}
             <li class="media mb-4 p-3 bg-light rounded">
                 <div class="media-body">
-                    <h2>{{ movie['Title'] }}</h2>
-                    <p>Genres: {{ movie['Genres'] }}</p>
-                    <p>Predicted Rating: {{ movie['Predicted_Rating'] }}</p>
+                    <h2>{{ movie['title'] }}</h2>
+                    <p>Genres: {{ movie['genres'] }}</p>
+                    <p>Predicted Rating: {{ movie['predicted_rating'] }}</p>
                 </div>
             </li>
-            {% endfor %}
-        </ul>
-    </div>
+        {% endfor %}
+    </ul>
+</div>
 </body>
 </html>
