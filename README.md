@@ -17,9 +17,9 @@ You will need the following to run the project:
 ### Installing
 
 1. Clone the repository to your local machine:
-    git clone https://github.com/Santagar7/NN_CourseProject.git
+    `git clone https://github.com/Santagar7/NN_CourseProject`
 2. Navigate into the project directory:
-    cd NN_CourseProject 
+    `cd NN_CourseProject` 
 3. Install the required packages. If you are using a virtual environment, make sure it is activated:
 
 ### Training the model
